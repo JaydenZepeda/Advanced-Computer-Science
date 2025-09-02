@@ -51,3 +51,16 @@ public class Ketchup {
     }
 
 }
+// Method header/signature
+// public void identifier(paramaters or arguement)       void only if nothing is returned
+// modifier type                                         type=what type of thing is being returned
+//
+// ex. public void drinkMe(double amount){
+//     if(amount < weight){
+//      weight = weight - amount;
+//     }                                                *changes weight of the bootle that this method is called on by subtracting amount from weight
+//     else{     
+//         print("Not enough fluid");                   *check if amount is < weight if so just subtract all good
+//     }                                                *if not print "Not enough fluid!" maybe make this be brand= print("Not enough "+ brand)
+//}                                                     *boolean has to be in () for if statment 
+//                                                      *= means to change variables   == checks if variables are =
