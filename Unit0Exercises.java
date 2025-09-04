@@ -26,7 +26,7 @@ public class Unit0Exercises {
     public boolean sleepIn(boolean weekday, boolean vacation) {
         if(weekday == true && vacation == false){
             return true;
-        } else if(weekday == false && vacation == true){
+        } else if (weekday == false && vacation == true){
             return true;
         } else {
             return false;
@@ -35,11 +35,14 @@ public class Unit0Exercises {
         
 
     public int diff21(int n) {
-        return 0;
+        if (n > 21 )
+        return (21 - n) * -2;
+    } else {
+        return 21 - n;
     }
 
     public double flooringCalculator(int sqft, double pricePerSqft) {
-        return 0.0;
+        return sqft * pricePerSqft;
     }
 
 }
