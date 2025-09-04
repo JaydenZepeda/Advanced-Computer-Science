@@ -1,7 +1,7 @@
 public class KetchupTester {
-    public static void main() {
+    public static void main(String[] args) {
         System.out.println("WSP");
-
+        
         Ketchup packet1 = new Ketchup();
         packet1.changebrand();
         packet1.smash();
