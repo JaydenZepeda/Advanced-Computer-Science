@@ -35,6 +35,7 @@ public class Unit0Exercises {
             return (21 - n) * -2;
         } else {
             return 21 - n;
+        }    
     }
 
     public double flooringCalculator(int sqft, double pricePerSqft) {
