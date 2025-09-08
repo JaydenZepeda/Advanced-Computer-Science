@@ -14,6 +14,23 @@ public class Ketchup {
         shape = "rectangle";
     }
 
+    public String toString() {
+        return "The properties are" + color + cost + weight + brand + shape;
+    }
+
+    public boolean equals(Ketchup anotherKetchup) {
+        if (this.cost == anotherKetchup.cost &&
+            this.weight == anotherKetchup.weight &&
+            this.color.equals(anotherKetchup.color) &&
+            this.brand.equals(anotherKetchup.brand) &&
+            this.shape.equals(anotherKetchup.shape)
+        ) {
+                return true;
+        }
+
+        return false;
+    }
+
     // open
     public void open() {
         shape = "hexagon";
