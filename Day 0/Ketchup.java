@@ -14,9 +14,61 @@ public class Ketchup {
         shape = "rectangle";
     }
 
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+
+    public String getColor() {
+        return color;
+    }
+
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+
+    public double getCost() {
+        return cost;
+    }
+
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+
+    public int getWeight() {
+        return weight;
+    }
+
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+
+    public String getBrand() {
+        return brand;
+    }
+
+
+    public void setShape(String shape) {
+        this.shape = shape;
+    }
+
+
+    public String getShape() {
+        return shape;
+    }
+
+
     public String toString() {
         return "The properties are" + color + cost + weight + brand + shape;
     }
+
 
     public boolean equals(Ketchup anotherKetchup) {
         if (this.cost == anotherKetchup.cost &&
@@ -47,7 +99,6 @@ public class Ketchup {
     }
 
     // smash
-
     public void smash() {
         weight = 2;
         cost = 0;
@@ -56,7 +107,6 @@ public class Ketchup {
     }
 
     // squirt ketchup
-
     public void squirtketchup() {
         weight = weight - 1;
         System.out.println("You lost some ketchup" + weight);
