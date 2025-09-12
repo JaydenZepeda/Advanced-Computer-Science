@@ -8,10 +8,13 @@ public class RectangleTester {
         System.out.println(rect2.toString());
         rect1.setLength(20);
         rect1.setWidth(10);
+        rect2.setLength(40);
+        rect2.setWidth(20);
         System.out.println(rect1.toString());
         System.out.println(rect2.toString());
         System.out.println(rect1.equals(rect2));
-        System.out.println(rect1.calculateDiagonal());
+        System.out.println(rect1.getDiagonal());
+        System.out.println(rect2.getDiagonal());
     }
     
 }
