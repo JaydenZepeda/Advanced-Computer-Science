@@ -1,3 +1,3 @@
-public class StudentProfileTester {
+public class StudentTester {
     
 }
