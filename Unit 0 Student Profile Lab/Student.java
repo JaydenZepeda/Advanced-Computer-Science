@@ -9,7 +9,8 @@ public class Student {
     }
 
     public Student(String name) {
-        this.name.equals(name);
+        this.name = name;
+        this.grade = 10;
     }
     
     public void setName(String name) {
@@ -42,15 +43,24 @@ public class Student {
 
     public boolean equals(Student other) {
         if (this.name.equals(other.name)
-        && this.grade == other.grade
-        && this.id.equals(other.id)){
+            && this.grade == other.grade
+            && this.id.equals(other.id)) {
             return true;
         }
 
         return false;
     }
 
-    public void generateId() {
-        this.id = (int) (Math.random() * ()); // Math.random() [diff of range +1 so it can include max] + [min]
+    public String generateId() {
+        int n1 = (int) (Math.random() * 9 + 1);
+        int n2 = (int) (Math.random() * 9 + 1); 
+        int n3 = (int) (Math.random() * 9 + 1); 
+        int n4 = (int) (Math.random() * 10);
+        int n5 = (int) (Math.random() * 10);
+        int n6 = (int) (Math.random() * 10);
+        int n7 = (int) (Math.random() * 10);
+        return this.id = n1 + n2 + n3 + "-" + n4 +  + n5 + n6 + n7; 
+        // Math.random() [diff of range +1 so it can include max] + [min]
     }
+    
 }
