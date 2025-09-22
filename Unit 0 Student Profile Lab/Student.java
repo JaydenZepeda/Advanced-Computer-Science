@@ -6,11 +6,13 @@ public class Student {
     public Student(String name, int grade) {
         this.name = name; 
         this.grade = grade;
+        this.id = generateId();
     }
 
     public Student(String name) {
         this.name = name;
         this.grade = 10;
+        this.id = generateId();
     }
     
     public void setName(String name) {
@@ -30,7 +32,7 @@ public class Student {
     }
 
     public void setId(String id) {
-        this.id = generateId();
+        this.id = id;
     }
 
     public String getId() {
@@ -52,14 +54,15 @@ public class Student {
     }
 
     public String generateId() {
-        int n1 = (int) (Math.random() * 9 + 1);
-        int n2 = (int) (Math.random() * 9 + 1); 
-        int n3 = (int) (Math.random() * 9 + 1); 
+        int n1 = (int) (Math.random() * 8 + 1);
+        int n2 = (int) (Math.random() * 8 + 1); 
+        int n3 = (int) (Math.random() * 8 + 1); 
         int n4 = (int) (Math.random() * 10);
         int n5 = (int) (Math.random() * 10);
         int n6 = (int) (Math.random() * 10);
         int n7 = (int) (Math.random() * 10);
-        return this.id = n1 + n2 + n3 + "-" + n4 +  + n5 + n6 + n7; 
+        this.id = "" + n1 + n2 + n3 + "-" + n4 +  + n5 + n6 + n7; 
+        return this.id;
         // Math.random() [diff of range +1 so it can include max] + [min]
     }
     
