@@ -61,6 +61,6 @@ if (isLoanOfficer == true
                this.numberOfTellers -= numberToFire; 
             }    
         }
-        System.out.println("You do not enough employees to fire" + numberToFire + "loan officers or tellers.");
+        System.out.println("You do not enough employees to fire " + numberToFire + " loan officers or tellers.");
     }
 }
