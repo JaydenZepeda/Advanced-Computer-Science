@@ -1,9 +1,9 @@
 public class Employee {
     private String name;
     private String jobTitle;
-    private int salary;
+    private double salary;
     
-    public Employee(String name, String jobTitle, int salary) {
+    public Employee(String name, String jobTitle, double salary) {
         this.name = name;
         this.jobTitle = jobTitle;
         this.salary = salary;
@@ -25,7 +25,7 @@ public class Employee {
         this.jobTitle = jobTitle;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -47,6 +47,6 @@ public class Employee {
     }
 
     public void raiseSalary(double Percentage) {
-        salary = (double) (Percentage + 1) * this.salary;
+        this.salary =  salary * (1 + Percentage / 100);
     }
 }
