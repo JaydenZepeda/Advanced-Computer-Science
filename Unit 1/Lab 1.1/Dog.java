@@ -12,6 +12,9 @@ public class Dog {
         this.ownerName = ownerName;
         this.age = age;
         this.dogId = dogId;
+        this.dogChar = Dog.generateDogChar(this.dogId);
+        this.dogTag = generateDogTag();
+        this.stillInFacility = true;
     }
 
     public Dog() {
@@ -19,6 +22,9 @@ public class Dog {
         this.ownerName = "Theiss";
         this.age = 10;
         this.dogId = generateDogId();
+        this.dogChar = Dog.generateDogChar(this.dogId);
+        this.dogTag = generateDogTag();
+        this.stillInFacility = true;
     }
 
     public String getName() {
@@ -58,7 +64,7 @@ public class Dog {
     }
 
     public void setDogChar(char dogChar) {
-        this.dogChar = dogChar;
+        this.dogChar = Dog.generateDogChar(this.dogId);
     }
 
     public String getDogTag() {
@@ -66,7 +72,7 @@ public class Dog {
     }
 
     public void setDogTag(String dogTag) {
-        this.dogTag = dogTag;
+        this.dogTag = generateDogTag();
     }
 
     public boolean isStillInFacility() {
@@ -80,12 +86,12 @@ public class Dog {
     public String toString() {
         if (stillInFacility == true) {
             return name + " is good dog. They are " + age + " years old and belong to " +
-            ownerName + ". They are currently in our facility. For employee use only: DogTag is" + 
-            dogTag + dogChar + ".";
+            ownerName + ". They are currently in our facility. For employee use only: DogTag is " + 
+            dogTag + ".";
         }
         return name + " is good dog. They are " + age + " years old and belong to " +
-            ownerName + ". They are not currently in our facility. For employee use only: DogTag is" + 
-            dogTag + dogChar + ".";
+            ownerName + ". They are not currently in our facility. For employee use only: DogTag is " + 
+            dogTag + ".";
     }
 
     public boolean equals(Dog other) {
@@ -96,14 +102,31 @@ public class Dog {
     }
 
     public String generateDogTag() {
-        return "" + dogId + dogChar;
+        return dogTag = "" + dogId + dogChar;
     }
     
     public int generateDogId() {
         return (int) (Math.random() * 1000);
     }
 
-    public char generateDogChar() {
-        
+    public static char generateDogChar(int dogId) {
+        int num = dogId % 10;
+        int num2 = ((int) (dogId / 10)) % 10;
+        int num3 = ((int) (dogId / 100)) % 10;
+        char dogChar = ((char) ('F' +((num + num2 + num3) % 10)));
+        return dogChar;
+    }
+
+    public static String pickup(Dog dog, String personName) {
+        if (dog.ownerName.equals(personName)) {
+            dog.stillInFacility = false;
+            return dog.name + " has been picked up by their owner " + dog.ownerName + ".";
+        }
+        return dog.name + "'s owner's name does not maatch your name " + personName + ".";
+    }
+
+    public static void checkIn(Dog dog, String personName) {
+        dog.stillInFacility = true;
+        dog.ownerName = personName;
     }
 }
