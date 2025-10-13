@@ -12,7 +12,9 @@ public class DogTester {
 
         System.out.println(Dog.generateDogChar(dog1.getDogId()));
         System.out.println(Dog.generateDogChar(dog3.getDogId()));
-        System.out.println(dog1.generateDogTag() + dog2.generateDogTag() + dog3.generateDogTag());
+        System.out.println(PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()) + 
+        PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()) + 
+        PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
 
         System.out.println(dog1.toString() + dog2.toString() + dog3.toString());
 
