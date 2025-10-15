@@ -10,8 +10,8 @@ public class DogTester {
         dog1.setOwnerName("Jack");
         System.out.println(dog1.toString());
 
-        System.out.println(Dog.generateDogChar(dog1.getDogId()));
-        System.out.println(Dog.generateDogChar(dog3.getDogId()));
+        System.out.println(PawesomeUtils.generateDogChar(dog1.getDogId()));
+        System.out.println(PawesomeUtils.generateDogChar(dog3.getDogId()));
         System.out.println(PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()) + 
         PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()) + 
         PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
@@ -25,17 +25,17 @@ public class DogTester {
         dog2.setDogId(693);
         System.out.println(dog1.equals(dog2));
 
-        System.out.println(Dog.generateDogChar(123));
-        System.out.println(Dog.generateDogChar(456));
-        System.out.println(Dog.generateDogChar(789));
+        System.out.println(PawesomeUtils.generateDogChar(123));
+        System.out.println(PawesomeUtils.generateDogChar(456));
+        System.out.println(PawesomeUtils.generateDogChar(789));
 
         Dog dog4 = new Dog("Max", "Maria", 10, 123);
-        System.out.println(Dog.pickup(dog4, "Maria"));
-        System.out.println(Dog.pickup(dog4, "John"));
+        System.out.println(PawesomeUtils.pickup(dog4, "Maria"));
+        System.out.println(PawesomeUtils.pickup(dog4, "John"));
 
         System.out.println(dog4.isStillInFacility());
         dog4.setStillInFacility(false);
-        Dog.checkIn(dog4, "NewOwner");
+        PawesomeUtils.checkIn(dog4, "NewOwner");
         System.out.println(dog4.isStillInFacility() + dog4.getOwnerName());
     }
 }
