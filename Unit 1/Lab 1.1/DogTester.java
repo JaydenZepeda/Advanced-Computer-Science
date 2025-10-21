@@ -2,7 +2,7 @@ public class DogTester {
     public static void main(String[] args) {
 
         Dog dog1 = new Dog("Max", "Maximus", 10, 123);
-        Dog dog2 = new Dog();//max, theiss
+        Dog dog2 = new Dog(); //max, theiss
         Dog dog3 = new Dog("Nate", "Nathan", 12, 123);
 
         System.out.println(dog1.toString() + dog2.toString() + dog3.toString());
@@ -12,9 +12,9 @@ public class DogTester {
 
         System.out.println(PawesomeUtils.generateDogChar(dog1.getDogId()));
         System.out.println(PawesomeUtils.generateDogChar(dog3.getDogId()));
-        System.out.println(PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()) + 
-        PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()) + 
-        PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
+        System.out.println(PawesomeUtils.generateDogTag(dog1.getDogId(), dog1.getDogChar()) 
+            + PawesomeUtils.generateDogTag(dog2.getDogId(), dog2.getDogChar()) 
+            + PawesomeUtils.generateDogTag(dog3.getDogId(), dog3.getDogChar()));
 
         System.out.println(dog1.toString() + dog2.toString() + dog3.toString());
 

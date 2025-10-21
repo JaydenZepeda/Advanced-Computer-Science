@@ -56,7 +56,9 @@ public class Dog {
     }
 
     public void setDogId(int dogId) {
-        this.dogId = dogId;
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        setDogChar(PawesomeUtils.generateDogChar(this.dogId));
+        setDogTag(PawesomeUtils.generateDogTag(this.dogId, this.dogChar));
     }
 
     public char getDogChar() {
@@ -72,7 +74,7 @@ public class Dog {
     }
 
     public void setDogTag(String dogTag) {
-        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
+        this.dogTag = dogTag;
     }
 
     public boolean isStillInFacility() {
@@ -80,24 +82,27 @@ public class Dog {
     }
 
     public void setStillInFacility(boolean stillInFacility) {
-       this.stillInFacility = stillInFacility;
+        this.stillInFacility = stillInFacility;
     }
 
     public String toString() {
         if (stillInFacility == true) {
-            return name + " is good dog. They are " + age + " years old and belong to " +
-            ownerName + ". They are currently in our facility. For employee use only: DogTag is " + 
-            dogTag + ".";
+            return name 
+                + " is good dog. They are " + age + " years old and belong to " 
+                + ownerName 
+                + ". They are currently in our facility. For employee use only: DogTag is "
+                + dogTag + ".";
         }
-        return name + " is good dog. They are " + age + " years old and belong to " +
-            ownerName + ". They are not currently in our facility. For employee use only: DogTag is " + 
-            dogTag + ".";
+        return name + " is good dog. They are " + age + " years old and belong to " 
+            + ownerName 
+            + ". They are not currently in our facility. For employee use only: DogTag is "
+            + dogTag + ".";
     }
 
     public boolean equals(Dog other) {
         if (toString().equals(other.toString())) {
             return true;
-          } 
+        } 
         return false;
     }
 }
