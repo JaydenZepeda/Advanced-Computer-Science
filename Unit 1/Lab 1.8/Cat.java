@@ -6,12 +6,12 @@ public class Cat {
     private char catChar;
     private boolean isHungry;
 
-    public Cat(Srting name, String ownerName, int moodLevel, String catId) {
-        this.moodLevel = PurrfectUtils.validateMoodLevel();
+    public Cat(String name, String ownerName, int moodLevel, String catId) {
+        this.moodLevel = PurrfectUtils.validateMoodLevel(moodLevel);
         this.ownerName = ownerName;
         this.name = name;
-        this.catId = PurrfectUtils.validatedCatId();
-        this.catChar = PurrfectUtils.generateCatChar();
+        this.catId = PurrfectUtils.validateCatId(catId);
+        this.catChar = PurrfectUtils.generateCatChar(catId);
         this.isHungry = true;
     }
 
@@ -20,7 +20,7 @@ public class Cat {
         this.ownerName = "John";
         this.name = "Jake";
         this.catId = "1234";
-        this.catChar = PurrfectUtils.generateCatChar();
+        this.catChar = PurrfectUtils.generateCatChar(catId);
         this.isHungry = true;
     }
 
@@ -45,7 +45,7 @@ public class Cat {
     }
 
     public void setMoodLevel(int moodLevel) {
-        this.moodLevel = PurrfectUtils.validateMoodLevel();
+        this.moodLevel = PurrfectUtils.validateMoodLevel(moodLevel);
     }
 
     public String getCatId() {
@@ -53,7 +53,7 @@ public class Cat {
     }
 
     public void setCatId(String catId) {
-        this.catId = PurrfectUtils.validatedCatId();
+        this.catId = PurrfectUtils.validateCatId(catId);
     }
 
     public char getCatChar() {
@@ -78,18 +78,19 @@ public class Cat {
 
     public String toString() {
         String L1 = "== ABOUT " + name.toUpperCase() + " ==\n";
-        String L2 = name + " is a cat.\n"
-        String L3_4 = PurrfectUtils.determineCatMood(this);
-        return L1 + L2 + L3_4;
+        String L2 = name + " is a cat.\n";
+        String L3 = "Their tag is " + generateCatTag() + "\n";
+        String L4_5 = PurrfectUtils.determineCatMood(this);
+        return L1 + L2 + L3 + L4_5;
     }
 
     public boolean equals(Cat other) {
-        if (this.generateCatTag.equals(other.generateCatTag())
+        if (this.generateCatTag().equals(other.generateCatTag())
             && this.name.equals(other.name)
             && this.ownerName.equals(other.ownerName)
             && this.moodLevel == other.moodLevel
             && this.isHungry == other.isHungry) {
-                return true
+                return true;
             }
         return false;
     }
