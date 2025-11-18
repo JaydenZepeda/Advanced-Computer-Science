@@ -28,6 +28,11 @@ public class Robot {
 
 
     public void setHallway(int[] hallway) {
+        for (int i = 0; i < hallway.length; i++) {
+            if (hallway[i] < 0) {
+                hallway[i] = 0;
+            }
+        }
         this.hallway = hallway;
     }
 
@@ -38,6 +43,12 @@ public class Robot {
 
 
     public void setPosition(int position) {
+        if (position < 0) {
+            position = 0;
+        }
+        if (position > hallway.length - 1) {
+            position = hallway.length - 1;
+        }
         this.position = position;
     }
 
@@ -67,21 +78,25 @@ public class Robot {
      * Commands the robot to pick up an item, move forward or turn around
      */
     public void move() {
-        if (hallway[position] > 1) {
+        if (hallway[position] > 0) {
             hallway[position]--;
-        } else if (hallway[position] == 1) {
-            hallway[position]--;
-            if (isRobotBlockedByWall()) {
-                if (isFacingRight) {
-                    isFacingRight = false;
-                } else {
-                    isFacingRight = true;
-                }
-            } else {
-                if (isFacingRight)
+            if (hallway[position] > 0) {
+                return;
             }
         }
-
+        if (!isRobotBlockedByWall()) {
+            if (isFacingRight) {
+                position = position + 1;
+            } else {
+                position = position - 1;
+            }
+        } else {
+            if (isFacingRight) {
+                isFacingRight = false;
+            } else {
+                isFacingRight = true;
+            }
+        }
     }
 
     /**
@@ -108,18 +123,12 @@ public class Robot {
      * @return a boolean value indicating if the hallway contains any items
      */
     public boolean hallIsClear() {
-        boolean zero = true;
         for (int i = 0; i < hallway.length; i++) {
-            if (hallway[i] == 0) {
-                zero = true;
-            }
             if (hallway[i] != 0) {
-                zero = false;
-                i = hallway.length;
-                return zero;
+                return false;
             }
         }
-        return zero;
+        return true;
     }
 
     /*
