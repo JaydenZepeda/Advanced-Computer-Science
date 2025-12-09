@@ -80,10 +80,10 @@ public class Course {
         for (int i = 0; i < enrolledStudents.length; i++) {
             if (enrolledStudents[i] == student) {
                 enrolledStudents[i] = null;
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public int countEnrolledStudents() {
