@@ -24,11 +24,8 @@ public class OrderProcessor {
     public static int premiumCount(Item[] items) {
         int premiumCount = 0;
         for (Item item : items) {
-            if (item.getPrice() > 50.0) {
+            if (OrderProcessor.isItemPremium(item)) {
                 premiumCount += 1;
-                System.out.println(item.getName() + " is a premium item at $" + item.getPrice());
-            } else {
-                System.out.println(item.getName() + " is a regular item at $" + item.getPrice());
             }
         }
         return premiumCount;
@@ -38,7 +35,7 @@ public class OrderProcessor {
         int x = 0;
         String[] expensiveItems = new String[OrderProcessor.premiumCount(items)];
         for (int i = 0; i < items.length; i++) {
-            if (items[i].getPrice() > 50.0) {
+            if (OrderProcessor.isItemPremium(items[i])) {
                 expensiveItems[x] = items[i].getName();
                 x++;
             }
@@ -60,5 +57,15 @@ public class OrderProcessor {
         taxTotal[0] = tax;
         taxTotal[1] = total;
         return taxTotal;
+    }
+
+    public static boolean isItemPremium(Item item) {
+        if (item.getPrice() > 50.0) {
+            System.out.println(item.getName() + " is a premium item at $" + item.getPrice());
+            return true;
+        } else {
+            System.out.println(item.getName() + " is a regular item at $" + item.getPrice());
+            return false;
+        }
     }
 }
