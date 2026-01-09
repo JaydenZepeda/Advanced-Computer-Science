@@ -1,6 +1,6 @@
 public class Unit3ExercisesTester {
     public static void main(String[] args) {
-        testSumEvenNumbers();
+        testCalculateIntrest();
     }
 
     public static void testCalculateStringLengthAverage() {
@@ -120,5 +120,101 @@ public class Unit3ExercisesTester {
             System.out.println(e.toString());
             System.out.println("The method threw an exception when the array was null, as intended");
         }
+    }
+
+    public static void testCalculateSumOfSquares() {
+        // Main Case
+        int[] nums = { 1, 2, 3 };
+        System.out.println("Expected 14: " + Unit3Exercises.calculateSumOfSquares(nums));
+
+        // Edge - null
+        nums = null;
+        System.out.println("Expected 14: " + Unit3Exercises.calculateSumOfSquares(nums)); // expected error
+
+        // Edge - neg nums
+        nums = new int[] { -1, -2, -3 };
+        System.out.println("Expected 14: " + Unit3Exercises.calculateSumOfSquares(nums));
+    }
+
+    public static void testGetNthFibonacci() {
+        // Main Case
+        int n = 0;
+        System.out.println("Expected 0: " + Unit3Exercises.getNthFibonacci(n));
+        n = 1;
+        System.out.println("Expected 0: " + Unit3Exercises.getNthFibonacci(n));
+        n = 2;
+        System.out.println("Expected 1: " + Unit3Exercises.getNthFibonacci(n));
+        n = 3;
+        System.out.println("Expected 2: " + Unit3Exercises.getNthFibonacci(n));
+        n = 4;
+        System.out.println("Expected 3: " + Unit3Exercises.getNthFibonacci(n));
+        n = 5;
+        System.out.println("Expected 5: " + Unit3Exercises.getNthFibonacci(n));
+
+        // Edge - neg num
+        n = -3;
+        System.out.println("Expected error: " + Unit3Exercises.getNthFibonacci(n));
+    }
+
+    public static void testSortArrayDescending() {
+        // Main Case
+        int[] nums = { 1, 3, 5, 2, 4, };
+        System.out.println("Expected 5, 4, 3, 2, 1: " + Unit3Exercises.sortArrayDescending(nums)); // success
+
+        // Main Case - neg nums
+        nums = new int[] { -1, -3, -5, -2, -4, };
+        System.out.println("Expected -1, -2, -3, -4, -5: " + Unit3Exercises.sortArrayDescending(nums)); // success
+
+        // Edge - null
+        nums = null;
+        System.out.println("Expected error" + Unit3Exercises.sortArrayDescending(nums)); // success
+    }
+
+    public static void testFindLongestWord() {
+        // Main Case
+        String sentence = "I like kentucky fried chicken";
+        System.out.println("Expected kentucky: " + Unit3Exercises.findLongestWord(sentence));
+        sentence = "Do not do drugs";
+        System.out.println("Expected drugs: " + Unit3Exercises.findLongestWord(sentence));
+
+        // Main Case
+        sentence = "Big Fat Lie";
+        System.out.println("Expected Big: " + Unit3Exercises.findLongestWord(sentence));
+
+        // Edge - empty/null
+        sentence = "";
+        System.out.println("Expected error: " + Unit3Exercises.findLongestWord(sentence));
+        sentence = null;
+        System.out.println("Expected error: " + Unit3Exercises.findLongestWord(sentence));
+    }
+
+    public static void testCalculateIntrest() {
+        double principal = 200;
+        double rate = 10.5;
+        int years = 5;
+        System.out.println("Expected 329.489: " + Unit3Exercises.calculateInterest(principal, rate, years));
+
+        principal = 100;
+        rate = 12;
+        years = 10;
+        System.out.println("Expected 310.58: " + Unit3Exercises.calculateInterest(principal, rate, years));
+
+        // Edge - neg principal
+        principal = -100;
+        rate = 10;
+        years = 5;
+        System.out.println("Expected error: " + Unit3Exercises.calculateInterest(principal, rate, years));
+
+        // Edge - neg rate
+        principal = 100;
+        rate = -10;
+        years = 5;
+        System.out.println("Expected error: " + Unit3Exercises.calculateInterest(principal, rate, years));
+
+        // Edge - neg year
+        principal = 100;
+        rate = 10;
+        years = -5;
+        System.out.println("Expected error: " + Unit3Exercises.calculateInterest(principal, rate, years));
     }
 }
