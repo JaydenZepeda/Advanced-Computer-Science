@@ -144,4 +144,65 @@ public class Unit3Exercises {
         }
         return principal;
     }
+
+    public static int parsePositiveInteger(String str) {
+        try {
+            int number = Integer.parseInt(str);
+            System.out.println(number);
+            if (number < 0) {
+                throw new NumberFormatException("Invalid");
+            }
+            return number; // Method should return 1 if it's negative
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Invalid");
+            return 1;
+        }
+    }
+
+    public static String getArrayElement(String[] arr, int index) {
+        try {
+            return arr[index];
+        } catch (Exception e) {
+            System.out.println("Invalid Index");
+            return null;
+        }
+    }
+
+    public static double calculateSquareRoot(int number) {
+        try {
+            if (number < 0) {
+                throw new IllegalArgumentException("No negative numbers");
+            }
+            return Math.sqrt(number);
+        } catch (Exception e) {
+            System.out.println("Invalid Number");
+            return Double.NaN;
+        }
+    }
+
+    public static int sumArrayElements(int[] array) {
+        try {
+            int sum = 0;
+            for (int i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            return sum;
+        } catch (Exception e) {
+            System.out.println("Invalid Input");
+            return 0;
+        }
+    }
+
+    public static double calculatePower(double base, int exponent) {
+        try {
+            if (exponent < 0) {
+                throw new IllegalArgumentException("Invalid input");
+            }
+            return Math.pow(base, exponent);
+        } catch (Exception e) {
+            System.out.println("Invalid Input");
+            return 1;
+        }
+    }
 }

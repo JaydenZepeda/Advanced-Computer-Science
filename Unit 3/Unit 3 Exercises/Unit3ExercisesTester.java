@@ -1,6 +1,6 @@
 public class Unit3ExercisesTester {
     public static void main(String[] args) {
-        testCalculateIntrest();
+        testCalculatePower();
     }
 
     public static void testCalculateStringLengthAverage() {
@@ -216,5 +216,34 @@ public class Unit3ExercisesTester {
         rate = 10;
         years = -5;
         System.out.println("Expected error: " + Unit3Exercises.calculateInterest(principal, rate, years));
+    }
+
+    public static void testParsePositiveInterger() {
+        System.out.println(Unit3Exercises.parsePositiveInteger("hi"));
+    }
+
+    public static void testGetArrayElement() {
+        String[] arr = { "A", "B", "C", "D" };
+        System.out.println(Unit3Exercises.getArrayElement(arr, 4));
+    }
+
+    public static void testCalculateSquareRoot() {
+        int num = -1;
+        System.out.println("Expected error: " + Unit3Exercises.calculateSquareRoot(num));
+    }
+
+    public static void testSumArrayElements() {
+        int[] arr = { 1, 2, 3, 4 };
+        System.out.println("Excpected 10: " + Unit3Exercises.sumArrayElements(arr));
+
+        arr = null;
+        System.out.println("Excpected 0: " + Unit3Exercises.sumArrayElements(arr));
+
+    }
+
+    public static void testCalculatePower() {
+        int exponent = -1;
+        double base = 2;
+        System.out.println("Expected 1: " + Unit3Exercises.calculatePower(base, exponent));
     }
 }
