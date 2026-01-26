@@ -33,21 +33,37 @@ public class Unit4Exercises {
 
     // Method 3: generateNumberSequence
     public static int[] generateNumberSequence(int start, int end) {
-        for (start; start < end; start++) {
-
+        int[] arr = new int[end - start];
+        for (int i = 0; i < end - start; i++) {
+            arr[i] = i + start;
         }
-        return new int[0];
+        return arr;
     }
 
     // Method 4: fizzBuzz
     public static String[] fizzBuzz(int start, int end) {
-        // to-do: implement the method
-        return new String[0];
+        String[] arr = new String[end - start];
+        for (int i = 0; i < end - start; i++) {
+            arr[i] = "" + (i + start);
+            if ((i + start) % 5 == 0 && (i + start) % 3 == 0) {
+                arr[i] = "FizzBuzz";
+            } else if ((i + start) % 5 == 0) {
+                arr[i] = "Buzz";
+            } else if ((i + start) % 3 == 0) {
+                arr[i] = "Fizz";
+            }
+        }
+        return arr;
     }
 
     // Method 5: moveEvenBeforeOdd
     public static int[] moveEvenBeforeOdd(int[] nums) {
-        // to-do: implement the method
+        int[] oddArr = new int[];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                nums
+            }
+        }
         return new int[0];
     }
 

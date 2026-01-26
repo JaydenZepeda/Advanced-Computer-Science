@@ -5,5 +5,9 @@ public class Unit4ExercisesTester {
 
         nums = new int[] { 2, 1, 3, 5 };
         System.out.println(Unit4Exercises.hasThreeConsecutive(nums));
+
+        System.out.println(Unit4Exercises.generateNumberSequence(5, 10));
+
+        System.out.println(Unit4Exercises.fizzBuzz(2, 16));
     }
 }
