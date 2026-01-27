@@ -58,13 +58,36 @@ public class Unit4Exercises {
 
     // Method 5: moveEvenBeforeOdd
     public static int[] moveEvenBeforeOdd(int[] nums) {
-        int[] oddArr = new int[];
+        int oddCount = 0;
+        int evenCount = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] % 2 == 0) {
-                nums
+                evenCount++;
+            } else {
+                oddCount++;
             }
         }
-        return new int[0];
+        int[] oddArr = new int[oddCount];
+        int[] evenArr = new int[evenCount];
+        int even = 0;
+        int odd = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                evenArr[even] = nums[i];
+                even++;
+            } else {
+                oddArr[odd] = nums[i];
+                odd++;
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (i < evenArr.length) {
+                nums[i] = evenArr[i];
+            } else {
+                nums[i] = oddArr[i - evenArr.length];
+            }
+        }
+        return nums;
     }
 
     // ArrayList Methods

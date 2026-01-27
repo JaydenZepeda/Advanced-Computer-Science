@@ -9,5 +9,8 @@ public class Unit4ExercisesTester {
         System.out.println(Unit4Exercises.generateNumberSequence(5, 10));
 
         System.out.println(Unit4Exercises.fizzBuzz(2, 16));
+
+        nums = new int[] { 1, 0, 1, 0, 0, 1, 1 };
+        Unit4Exercises.moveEvenBeforeOdd(nums);
     }
 }
