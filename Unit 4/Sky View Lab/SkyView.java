@@ -56,15 +56,15 @@ public class SkyView {
     }
 
     public double getAverage(int startRow, int endRow, int startCol, int endCol) {
-        double avg = 0;
+        double sum = 0;
         int count = 0;
         for (int r = 0; r < (endRow - startRow + 1); r++) {
             for (int c = 0; c < (endCol - startCol + 1); c++) {
-                avg += view[startRow + r][startCol + c];
+                sum += view[startRow + r][startCol + c];
                 count++;
             }
         }
-        return avg / count;
+        return sum / count;
     }
 
 }
