@@ -25,7 +25,18 @@ public class ArrayVersusArrayList {
     // shifting all
     // other elements to the right.
     public static void lastComesFirst(String[] arr) {
-        // to-do: implement method
+        if (arr == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+        if (arr.length >= 1) {
+            String tempStr = arr[arr.length - 1];
+            for (int index = 0; index < arr.length; index++) {
+                if (index != arr.length - 1) {
+                    arr[arr.length - 1 - index] = arr[arr.length - 2 - index];
+                }
+            }
+            arr[0] = tempStr;
+        }
 
     }
 
@@ -33,24 +44,40 @@ public class ArrayVersusArrayList {
     // shifting all
     // other elements to the right.
     public static void lastComesFirst(ArrayList<String> arrList) {
-        // to-do: implement method
-
+        if (arrList == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+        if (arrList.size() >= 1) {
+            arrList.add(0, arrList.get(arrList.size() - 1));
+            arrList.remove(arrList.size() - 1);
+        }
     }
 
     // modifies the given array by moving the first element to the last index, and
     // shifting all
     // other elements to the left.
     public static void firstComesLast(String[] arr) {
-        // to-do: implement method
-
+        if (arr == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+        String tempString = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (i + 1 != arr.length) {
+                arr[i] = arr[i + 1];
+            }
+        }
+        arr[arr.length - 1] = tempString;
     }
 
     // modifies the given array by moving the first element to the last index, and
     // shifting all
     // other elements to the left.
     public static void firstComesLast(ArrayList<String> arrList) {
-        // to-do: implement method
-
+        if (arrList == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+        arrList.add(arrList.size(), arrList.get(0));
+        arrList.remove(0);
     }
 
     // Test Methods
