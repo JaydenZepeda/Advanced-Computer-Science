@@ -1,31 +1,31 @@
-public class Hawk {
+public class Hawk extends Animal {
     private double wingLength;
     private double talonLength;
     private String mainColor;
     private int viewDistance;
     private boolean hasNest;
-    private double age;
-    private double weight;
     private boolean isHungry;
     private String spieces;
     private String sex;
     private int speed;
-    private String location;
+
+    public Hawk(double age, String location, double weight) {
+        super(age, location, weight);
+    }
 
     public Hawk(double wingLength, double talonLength, String mainColor, int viewDistance, boolean hasNest, double age,
             double weight, boolean isHungry, String spieces, String sex, int speed, String location) {
+        super(age, location, weight);
         this.wingLength = wingLength;
         this.talonLength = talonLength;
         this.mainColor = mainColor;
         this.viewDistance = viewDistance;
         this.hasNest = hasNest;
-        this.age = age;
-        this.weight = weight;
         this.isHungry = isHungry;
         this.spieces = spieces;
         this.sex = sex;
         this.speed = speed;
-        this.location = location;
+
     }
 
     public double getWingLength() {
@@ -68,22 +68,6 @@ public class Hawk {
         this.hasNest = hasNest;
     }
 
-    public double getAge() {
-        return age;
-    }
-
-    public void setAge(double age) {
-        this.age = age;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
     public boolean isHungry() {
         return isHungry;
     }
@@ -116,12 +100,8 @@ public class Hawk {
         this.speed = speed;
     }
 
-    public String getLocation() {
-        return location;
-    }
+    public void move() {
 
-    public void setLocation(String location) {
-        this.location = location;
     }
 
 }

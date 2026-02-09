@@ -4,9 +4,7 @@ public abstract class Animal {
     public double weight;
 
     public Animal(double age, String location, double weight) {
-        this.age = age;
-        this.weight = weight;
-        this.location = location;
+        super(age, location, weight);
     }
 
     public double getAge() {
@@ -23,6 +21,14 @@ public abstract class Animal {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     public void ageUp() {
@@ -49,5 +55,7 @@ public abstract class Animal {
         }
         weight -= kg;
     }
+
+    public abstract void move();
 
 }
