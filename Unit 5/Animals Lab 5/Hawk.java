@@ -13,6 +13,10 @@ public class Hawk extends Animal {
         super(age, location, weight);
     }
 
+    public Hawk() {
+
+    }
+
     public Hawk(double wingLength, double talonLength, String mainColor, int viewDistance, boolean hasNest, double age,
             double weight, boolean isHungry, String spieces, String sex, int speed, String location) {
         super(age, location, weight);

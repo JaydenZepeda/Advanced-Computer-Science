@@ -4,7 +4,11 @@ public abstract class Animal {
     public double weight;
 
     public Animal(double age, String location, double weight) {
-        super(age, location, weight);
+        super();
+    }
+
+    public Animal() {
+
     }
 
     public double getAge() {

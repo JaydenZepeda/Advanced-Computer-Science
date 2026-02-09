@@ -3,6 +3,7 @@ public class AnimalTester {
         Hawk hawk = new Hawk(2, "here", 2);
 
         hawk.ageUp(1);
-        hawk.getAge();
+        System.out.println(hawk.getAge());
+
     }
 }
