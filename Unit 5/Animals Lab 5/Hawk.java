@@ -9,8 +9,9 @@ public class Hawk extends Animal {
     private String sex;
     private int speed;
 
-    public Hawk(double age, String location, double weight) {
+    public Hawk(double age, String location, double weight, double wingLength) {
         super(age, location, weight);
+        this.wingLength = wingLength;
     }
 
     public Hawk() {
