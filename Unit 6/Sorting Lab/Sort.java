@@ -6,11 +6,11 @@ public class Sort {
     }
 
     public void sortArray() {
-        for (int i = 0; i < nums.length; i++) {
-            if (i + 1 == nums.length) {
-                continue;
-            } else if (nums[i] < nums[i + 1]) {
-                swap(i, i + 1);
+        for (int index = 0; index < nums.length - 1; index++) {
+            for (int i = 0; i < nums.length - index - 1; i++) {
+                if (nums[i] > nums[i + 1]) {
+                    swap(i, i + 1);
+                }
             }
         }
     }
@@ -27,6 +27,12 @@ public class Sort {
         int a = nums[position1];
         nums[position1] = nums[position2];
         nums[position2] = a;
+    }
+
+    public void printNums() {
+        for (int index = 0; index < nums.length; index++) {
+            System.out.println(nums[index]);
+        }
     }
 
 }

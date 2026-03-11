@@ -9,6 +9,6 @@ public class SortTester {
         }
         Sort list = new Sort(arr);
         list.sortArray();
-        System.out.println("done");
+        list.printNums();
     }
 }
