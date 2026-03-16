@@ -24,9 +24,10 @@ public class ContactList extends AbstractList {
             throw new IllegalArgumentException("Null Input");
         }
         for (int i = 0; i < contactList.size(); i++) {
-            if ((Character.getNumericValue(name.charAt(0))) < (Character
-                    .getNumericValue((contactList.get(i)).charAt(0)))) {
+            if ((name.toLowerCase()).compareTo((contactList.get(i).toLowerCase())) <= 0) {
                 return i;
+            } else {
+                return contactList.size() - 1;
             }
         }
         // You can use a sequential search here. But for a Stretch Challenge, try to do
