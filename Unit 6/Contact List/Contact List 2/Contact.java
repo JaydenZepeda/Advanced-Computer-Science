@@ -1,4 +1,4 @@
-public class Contact {
+public class Contact implements Comparable<Contact> {
     private String firstName;
     private String lastName;
     private String telephoneNumber;
@@ -6,7 +6,8 @@ public class Contact {
     public Contact(String firstName, String lastName, String telephoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.telephoneNumber = verifyNumber(telephoneNumber);
+        this.telephoneNumber = verifyNumberFixNum(telephoneNumber);
+        verifyNumber(this.telephoneNumber);
     }
 
     public String getFirstName() {
@@ -30,45 +31,74 @@ public class Contact {
     }
 
     public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = verifyNumber(telephoneNumber);
+        if (verifyNumber(telephoneNumber)) {
+            this.telephoneNumber = telephoneNumber;
+        } else {
+            throw new IllegalArgumentException("Invalid Input");
+        }
     }
 
+    @Override
     public int compareTo(Contact other) {
-        if (this.firstName.toLowerCase().compareTo(other.firstName.toLowerCase()) < 0
-                || this.lastName.toLowerCase().compareTo(other.lastName.toLowerCase()) < 0
-                || telephoneNumber.compareTo(other.telephoneNumber) < 0) {
-            return -1;
-        } else if (this.firstName.toLowerCase().compareTo(other.firstName.toLowerCase()) > 0
-                || this.lastName.toLowerCase().compareTo(other.lastName.toLowerCase()) > 0
-                || telephoneNumber.compareTo(other.telephoneNumber) > 0) {
-            return 1;
-        } else if (this.firstName.toLowerCase().compareTo(other.firstName.toLowerCase()) == 0
-                || this.lastName.toLowerCase().compareTo(other.lastName.toLowerCase()) == 0
-                || telephoneNumber.compareTo(other.telephoneNumber) == 0) {
-            return 0;
-        }
-        return 0;
+        int firstComp = this.firstName.compareToIgnoreCase(other.firstName);
+        if (firstComp != 0)
+            return firstComp;
+
+        int lastComp = this.lastName.compareToIgnoreCase(other.lastName);
+        if (lastComp != 0)
+            return lastComp;
+
+        return this.telephoneNumber.compareTo(other.telephoneNumber);
     }
 
     public String toString() {
         return "Name: " + firstName + " " + lastName + "\n #: " + telephoneNumber;
     }
 
-    public String verifyNumber(String telephoneNumber) {
+    public String verifyNumberFixNum(String telephoneNumber) {
+        if (telephoneNumber == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         String number = "";
-        String finalNum = "";
         for (int i = 0; i < telephoneNumber.length(); i++) {
-            if (!telephoneNumber.substring(i, i + 1).equals("-")) {
-                number += telephoneNumber.substring(i, i + 1);
+            if (Character.isDigit(telephoneNumber.charAt(i))) {
+                number += telephoneNumber.charAt(i);
             }
         }
-        for (int index = 0; index < number.length(); index++) {
-            if (index == 2 || index == 5) {
-                finalNum += number.substring(index, index + 1) + "-";
-            } else {
-                finalNum += number.substring(index, index + 1);
+        if (number.length() != 10) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+        return number.substring(0, 3) + "-" + number.substring(3, 6) + "-" + number.substring(6);
+    }
+
+    public boolean verifyNumber(String telephoneNumber) {
+        if (telephoneNumber == null || telephoneNumber.length() != 12) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+        for (int i = 0; i < telephoneNumber.length(); i++) {
+            char c = telephoneNumber.charAt(i);
+            if (i == 3 || i == 7) {
+                if (c != '-') {
+                    return false;
+                } else {
+                    if (!Character.isDigit(c)) {
+                        return false;
+                    }
+                }
             }
         }
-        return finalNum;
+        return true;
+    }
+
+    public int compareForLastNameSort(Contact other) {
+        int firstComp = this.lastName.compareToIgnoreCase(other.lastName);
+        if (firstComp != 0)
+            return firstComp;
+
+        int lastComp = this.firstName.compareToIgnoreCase(other.firstName);
+        if (lastComp != 0)
+            return lastComp;
+
+        return this.telephoneNumber.compareTo(other.telephoneNumber);
     }
 }
