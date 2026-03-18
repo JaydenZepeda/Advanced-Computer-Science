@@ -7,7 +7,6 @@ public class Contact implements Comparable<Contact> {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNumber = verifyNumberFixNum(telephoneNumber);
-        verifyNumber(this.telephoneNumber);
     }
 
     public String getFirstName() {

@@ -11,7 +11,6 @@ public class ContactList extends AbstractList<Contact> {
     }
 
     public boolean add(Contact contact) {
-        contact.verifyNumber(contact.getTelephoneNumber());
         contact.verifyNumberFixNum(contact.getTelephoneNumber());
         for (int i = 0; i < contactList.size(); i++) {
             if (contact.compareTo(contactList.get(i)) == 0
