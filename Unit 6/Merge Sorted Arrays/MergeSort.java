@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MergeSort {
 
     public static int[] mergeSortedArray(int[] a, int[] b) {
@@ -20,6 +22,13 @@ public class MergeSort {
             }
         }
         return c;
+    }
+
+    public static int[] mergeSort(int[] a) {
+        int[] left = Arrays.copyOfRange(a, 0, a.length / 2);
+        int[] right = Arrays.copyOfRange(a, a.length / 2, a.length);
+
+        return mergeSortedArray(mergeSort(left), mergeSort(right));
     }
 
 }
