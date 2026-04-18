@@ -25,9 +25,11 @@ public class MergeSort {
     }
 
     public static int[] mergeSort(int[] a) {
+        if (a.length <= 1) {
+            return a;
+        }
         int[] left = Arrays.copyOfRange(a, 0, a.length / 2);
         int[] right = Arrays.copyOfRange(a, a.length / 2, a.length);
-
         return mergeSortedArray(mergeSort(left), mergeSort(right));
     }
 
