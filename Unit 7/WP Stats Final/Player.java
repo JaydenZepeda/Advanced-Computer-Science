@@ -4,5 +4,7 @@ public class Player {
     private String name;
     private String position;
     private int capNumber;
-    private ArrayList<Stat> stats;
+    private ArrayList<BaseStat> stats;
+    private boolean isLefty;
+
 }

@@ -1,0 +1,12 @@
+public enum Tournament {
+    JUNIOR_OLYMPICS,
+    FUTURES_LEAGUE,
+    SUPERFINALS,
+    JO_QUALS,
+    MISSION_LEAGUE,
+    NORTH_SOUTH,
+    ELITE_8,
+    SOUTH_COAST,
+    CIF,
+    OTHER_BUM_TOURNY
+}
