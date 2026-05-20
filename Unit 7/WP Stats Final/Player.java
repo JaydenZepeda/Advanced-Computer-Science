@@ -108,6 +108,13 @@ public class Player {
         return sum;
     }
 
+    public double getTotalForTournament(StatType type, Tournament tournament) {
+        double sum = 0;
+        for (BaseStat stat : stats) {
+            if (stat.)
+        }
+    }
+
     public double getTotalCombined(StatType type) {
         double sum = 0;
         for (BaseStat stat : stats) {
@@ -118,12 +125,4 @@ public class Player {
         return sum;
     }
 
-    public double getTotalInRange(StatType type, LocalDate start, LocalDate end) {
-        double sum = 0;
-        for (BaseStat stat : stats) {
-
-            
-        }
-    }
-    
 }
