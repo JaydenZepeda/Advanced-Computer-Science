@@ -6,7 +6,7 @@ public class Team {
 
     public Team(String name) {
         teamName = name;
-        players = new ArrayList<Player>();
+        players = new ArrayList<Player>(30);
     }
 
     public Team(String name, ArrayList<Player> players) {

@@ -4,11 +4,13 @@ public abstract class BaseStat {
     private StatType stat;
     private double value;
     private LocalDate date;
+    private SeasonType season;
 
-    public BaseStat(StatType stat, double value, LocalDate date) {
+    public BaseStat(StatType stat, double value, LocalDate date, SeasonType season) {
         this.stat = stat;
         this.value = value;
         this.date = date;
+        this.season = season;
     }
 
     public StatType getStat() {
@@ -39,6 +41,14 @@ public abstract class BaseStat {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public SeasonType getSeason() {
+        return season;
+    }
+
+    public void setSeason(SeasonType season) {
+        this.season = season;
     }
 
 }
