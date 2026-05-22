@@ -192,19 +192,18 @@ public class Player {
         return totalImpact;
     }
 
-    public void printStatSheet() { // AI
+    public void printStatSheet() {
         System.out.println(
-                "\n============================================================================================");
+                "\n====================================================================================================");
         System.out.println("FULL STAT SHEET: " + name);
         System.out.println("PB 50m: " + (pb50m == Double.MAX_VALUE ? "N/A" : pb50m + "s") + " | PB 100m: "
                 + (pb100m == Double.MAX_VALUE ? "N/A" : pb100m + "s"));
         System.out.println(
-                "--------------------------------------------------------------------------------------------");
-        // Updated Header to include Avgs
+                "----------------------------------------------------------------------------------------------------");
         System.out.printf("%-25s | %-10s | %-10s | %-10s | %-10s | %-10s | %-10s\n",
                 "Stat Category", "Comb Tot", "Comb Avg", "Club Tot", "Club Avg", "HS Tot", "HS Avg");
         System.out.println(
-                "--------------------------------------------------------------------------------------------");
+                "----------------------------------------------------------------------------------------------------");
 
         for (StatType type : StatType.values()) {
             double cTot = getTotalCombined(type, StatSource.BOTH);

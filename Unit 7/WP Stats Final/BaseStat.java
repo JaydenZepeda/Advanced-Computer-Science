@@ -7,6 +7,9 @@ public abstract class BaseStat {
     private SeasonType season;
 
     public BaseStat(StatType stat, double value, LocalDate date, SeasonType season) {
+        if (stat == null || date == null || season == null || value < 0) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.stat = stat;
         this.value = value;
         this.date = date;
@@ -40,6 +43,9 @@ public abstract class BaseStat {
     }
 
     public void setDate(LocalDate date) {
+        if (date == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.date = date;
     }
 
@@ -48,6 +54,9 @@ public abstract class BaseStat {
     }
 
     public void setSeason(SeasonType season) {
+        if (season == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.season = season;
     }
 
