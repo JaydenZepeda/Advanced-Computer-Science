@@ -51,4 +51,6 @@ public abstract class BaseStat {
         this.season = season;
     }
 
+    public abstract StatSource getSource();
+
 }

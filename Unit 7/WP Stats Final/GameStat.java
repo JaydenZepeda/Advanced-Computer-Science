@@ -27,4 +27,9 @@ public class GameStat extends BaseStat {
         this.tournament = tournament;
     }
 
+    @Override
+    public StatSource getSource() {
+        return StatSource.GAME;
+    }
+
 }

@@ -16,4 +16,8 @@ public class PracticeStat extends BaseStat {
         this.drillName = drillName;
     }
 
+    @Override
+    public StatSource getSource() {
+        return StatSource.PRACTICE;
+    }
 }
