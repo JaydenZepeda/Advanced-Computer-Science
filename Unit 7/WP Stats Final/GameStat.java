@@ -16,6 +16,9 @@ public class GameStat extends BaseStat {
     }
 
     public void setOpponent(String opponent) {
+        if (opponent == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.opponent = opponent;
     }
 
@@ -24,6 +27,9 @@ public class GameStat extends BaseStat {
     }
 
     public void setTournament(Tournament tournament) {
+        if (tournament == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.tournament = tournament;
     }
 

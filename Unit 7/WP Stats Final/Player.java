@@ -13,6 +13,9 @@ public class Player {
 
     public Player(String name, Position position, ArrayList<BaseStat> stats, boolean isLefty,
             double pb50m, double pb100m) {
+        if (name == null || position == null || stats == null || pb100m == 0.0 || pb50m == 0.0) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.name = name;
         this.position = position;
         this.stats = stats;
@@ -22,6 +25,9 @@ public class Player {
     }
 
     public Player(String name, Position position) {
+        if (name == null || position == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.name = name;
         this.position = position;
         this.stats = new ArrayList<BaseStat>();
@@ -35,6 +41,9 @@ public class Player {
     }
 
     public void setName(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.name = name;
     }
 
@@ -43,6 +52,9 @@ public class Player {
     }
 
     public void setPosition(Position position) {
+        if (position == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.position = position;
     }
 
@@ -51,6 +63,14 @@ public class Player {
     }
 
     public void setStats(ArrayList<BaseStat> stats) {
+        if (stats == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+        for (BaseStat stat : stats) {
+            if (stat == null) {
+                throw new IllegalArgumentException("Invalid Input");
+            }
+        }
         this.stats = stats;
     }
 
@@ -83,6 +103,9 @@ public class Player {
     }
 
     public void addStat(BaseStat stat) {
+        if (stat == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         stats.add(stat);
         if (stat.getStat() == StatType.SHOTS_SCORED) {
             if (allTimeTopScorer == null || this.getTotalCombined(StatType.SHOTS_SCORED,
@@ -97,6 +120,9 @@ public class Player {
     }
 
     public double getTotal(StatType type, SeasonType season, int year, StatSource source) {
+        if (type == null || source == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         double sum = 0;
         for (BaseStat stat : stats) {
             if (stat.getStat() == type
@@ -110,6 +136,9 @@ public class Player {
     }
 
     public double getTotalForTournament(StatType type, Tournament tournament, int year) {
+        if (type == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         double sum = 0;
         for (BaseStat stat : stats) {
             if (stat.getSource() == StatSource.GAME) {
@@ -129,6 +158,9 @@ public class Player {
     }
 
     public double getTotalInRange(StatType type, LocalDate start, LocalDate end, SeasonType season, StatSource source) {
+        if (type == null || start == null || end == null || source == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         double sum = 0;
         for (BaseStat stat : stats) {
             if (stat.getStat() == type && (season == null || stat.getSeason() == season) &&
@@ -142,6 +174,9 @@ public class Player {
 
     public double getAverageInRange(StatType type, LocalDate start, LocalDate end, SeasonType season,
             StatSource source) {
+        if (type == null || start == null || end == null || source == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         double totalValue = 0;
         double divisor = 0;
         for (BaseStat stat : stats) {
@@ -164,11 +199,17 @@ public class Player {
     }
 
     public String formatStatName(StatType type) {
+        if (type == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         String name = type.name().replace('_', ' ').toLowerCase();
         return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
     public int getStatWeight(StatType type) {
+        if (type == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         if (type == StatType.GAMES_PLAYED || type == StatType.PRACTICES || type == StatType.METERS_SWAM) {
             return 0;
         }

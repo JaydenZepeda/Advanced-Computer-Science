@@ -11,6 +11,9 @@ public class Team {
     private ArrayList<Player> starters;
 
     public Team(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         teamName = name;
         players = new ArrayList<Player>(30);
         teamYear = LocalDate.now().getYear();
@@ -18,6 +21,9 @@ public class Team {
     }
 
     public Team(String teamName, int maxCap, SeasonType season, int year) {
+        if (teamName == null || maxCap == 0 || season == null || year == 0) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.teamName = teamName;
         this.season = season;
         this.teamYear = year;
@@ -28,6 +34,9 @@ public class Team {
     }
 
     public Team(String name, ArrayList<Player> players, int year, SeasonType season) {
+        if (name == null || players == null || year == 0 || season == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         teamName = name;
         this.players = players;
     }
@@ -45,6 +54,9 @@ public class Team {
     }
 
     public void setTeamName(String teamName) {
+        if (teamName == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.teamName = teamName;
     }
 
@@ -59,6 +71,9 @@ public class Team {
     }
 
     public void setTeamYear(int teamYear) {
+        if (teamYear == 0) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.teamYear = teamYear;
     }
 
@@ -67,6 +82,9 @@ public class Team {
     }
 
     public void setSeason(SeasonType season) {
+        if (season == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.season = season;
     }
 
@@ -103,12 +121,17 @@ public class Team {
     }
 
     public static double calculateTeamAverageGoals(ArrayList<Player> players, SeasonType season, int year) {
+        if (season == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         if (players == null || players.isEmpty()) {
             return 0;
         }
         double total = 0;
         for (Player player : players) {
-            total += player.getTotal(StatType.SHOTS_SCORED, season, year, StatSource.GAME);
+            if (player != null) {
+                total += player.getTotal(StatType.SHOTS_SCORED, season, year, StatSource.GAME);
+            }
         }
         return total / players.size();
     }
@@ -116,23 +139,31 @@ public class Team {
     public double getTeamTotalGoals() {
         double total = 0;
         for (Player player : players) {
-            if (player != null)
+            if (player != null) {
                 total += player.getTotal(StatType.SHOTS_SCORED, this.season, this.teamYear, StatSource.GAME);
+            }
         }
         return total;
     }
 
     public double getTeamTotal(StatType type, StatSource source) {
+        if (season == null || type == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         double total = 0;
         for (Player player : players) {
-            if (player != null)
+            if (player != null) {
                 total += player.getTotal(type, this.season, this.teamYear, source);
+            }
         }
         return total;
     }
 
     public ArrayList<Player> getSortedPlayers(String criteria, StatType stat, boolean ascending, int filterYear,
             StatSource source) {
+        if (source == null || criteria == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         ArrayList<Player> active = getPlayersOnlyList();
         int n = active.size();
 
@@ -220,7 +251,9 @@ public class Team {
 
     public static void printPlayerList(ArrayList<Player> players) {
         for (Player player : players) {
-            System.out.println(player.getName());
+            if (player != null) {
+                System.out.println(player.getName());
+            }
         }
     }
 }

@@ -13,6 +13,9 @@ public class PracticeStat extends BaseStat {
     }
 
     public void setDrillName(String drillName) {
+        if (drillName == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
         this.drillName = drillName;
     }
 

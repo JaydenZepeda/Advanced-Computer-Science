@@ -22,6 +22,11 @@ public class Coach extends Player {
     }
 
     public void addTeam(Team t) {
+        for (Team team : teams) {
+            if (team.getTeamName().equals(t.getTeamName())) {
+                return;
+            }
+        }
         teams.add(t);
     }
 
@@ -31,5 +36,14 @@ public class Coach extends Player {
                 return t.getTeamTotal(type, source);
         }
         return 0;
+    }
+
+    public ArrayList<Player> getRecommendedStarters(Team team) {
+        ArrayList<Player> recStarters = new ArrayList<Player>(6);
+        ArrayList<Player> impactTeam = team.getSortedPlayers("impact", null, true, 0, StatSource.BOTH);
+        for (int i = 0; i < 6; i++) {
+            recStarters.add(i, impactTeam.get(i));
+        }
+        return recStarters;
     }
 }
